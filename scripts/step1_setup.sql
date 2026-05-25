@@ -38,10 +38,10 @@ CREATE TABLE LibrarySchema.Users (
     userId INT IDENTITY(1,1) PRIMARY KEY,
     userName NVARCHAR(100) NOT NULL UNIQUE,
     fullName NVARCHAR(200) NOT NULL,
-    icNumber NVARCHAR(20) NOT NULL UNIQUE,
+    icNumber NVARCHAR(20) UNIQUE,
     email NVARCHAR(200) NOT NULL UNIQUE,
     password NVARCHAR(200) NOT NULL,
-    phoneNumber NVARCHAR(15) NOT NULL,
+    phoneNumber NVARCHAR(15),
     role NVARCHAR(20)  NOT NULL DEFAULT 'Member' CHECK (Role IN ('Member','Librarian')),
     isActive BIT NOT NULL DEFAULT 1,
     createdAt DATETIME2 NOT NULL DEFAULT SYSDATETIME()
